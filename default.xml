@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote  name="aosp"
+  <remote name="aosp"
     fetch="https://android.googlesource.com/" />
+  <remote name="github" fetch="https://github.com/" />
   <default revision="refs/tags/android-15.0.0_r0.16"
     remote="aosp" sync-j="4" />
 
@@ -18,8 +19,14 @@
   <project path="private/devices/google/zuma" name="kernel/devices/google/zuma" groups="partner" />
   <project path="private/devices/google/shusky" name="kernel/devices/google/shusky" groups="partner,shusky" >
     <linkfile dest="build_shusky.sh" src="build_shusky.sh" />
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/ripcurrent" src="dts/google" />
+    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/shusky" src="dts/google" />
     <linkfile dest=".d1.bazelrc" src="device.bazelrc"/>
+  </project>
+  <project path="private/devices/google/akita" name="etnperlong/android_kernel_devices_google_akita" remote="github" groups="partner,akita" revision="android-15.0.0_r0.16">
+    <linkfile dest="build_akita.sh" src="build_akita.sh"/>
+    <linkfile dest=".d2.bazelrc" src="device.bazelrc"/>
+    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/akita" src="dts/google"/>
+    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/ripcurrent" src="dts/google" />
   </project>
   <project path="private/devices/google/zumapro" name="kernel/devices/google/zumapro" groups="partner" />
   <project path="private/devices/google/caimito" name="kernel/devices/google/caimito" groups="partner,caimito" >
@@ -66,6 +73,7 @@
   <project path="private/google-modules/uwb/qorvo/qm35" name="kernel/google-modules/uwb/qorvo/qm35" groups="partner" />
   <project path="private/google-modules/video/gchips" name="kernel/google-modules/video/gchips" groups="partner" />
   <project path="private/google-modules/nfc" name="kernel/google-modules/nfc" groups="partner" />
+  <project path="private/google-modules/wlan/bcm4383" name="kernel/google-modules/wlan/bcmdhd/bcm4383" groups="partner"/>
   <project path="private/google-modules/wlan/bcm4398" name="kernel/google-modules/wlan/bcmdhd/bcm4398" groups="partner" />
   <project path="private/google-modules/wlan/bcm4390" name="kernel/google-modules/wlan/bcmdhd/bcm4390" groups="partner" />
   <project path="private/google-modules/wlan/bcm4389" name="kernel/google-modules/wlan/bcmdhd/bcm4389" groups="partner" />
@@ -73,6 +81,7 @@
   <project path="private/google-modules/wlan/wcn6740/cnss2" name="kernel/google-modules/wlan/qcom/wcn6740/cnss2" groups="partner" />
   <project path="private/google-modules/wlan/wcn6740/wlan" name="kernel/google-modules/wlan/qcom/wcn6740/wlan" groups="partner" />
   <project path="private/google-modules/wlan/wlan_ptracker" name="kernel/google-modules/wlan/wlan_ptracker" groups="partner" />
+  <!-- <project path="private/google-modules/i3c/exynos" name="kernel/google-modules/i3c/exynos" groups="partner"/> -->
   <project path="build/kernel" name="kernel/build" groups="partner" >
     <linkfile dest="tools/bazel" src="kleaf/bazel.sh" />
     <linkfile dest="build/build.sh" src="build.sh" />
