@@ -3,7 +3,8 @@
 
   <remote  name="aosp"
     fetch="https://android.googlesource.com/" />
-  <default revision="android-gs-akita-6.1-android15-qpr2-beta"
+  <remote name="github" fetch="https://github.com/" />
+  <default revision="android-gs-shusky-6.1-android15-qpr2-beta"
     remote="aosp" sync-j="4" />
 
   <project path="aosp" name="kernel/common" groups="partner" >
@@ -74,7 +75,7 @@
   </project>
 
   <project path="private/google-modules/soc/gs" name="kernel/google-modules/soc/gs" groups="partner" />
-  <project path="private/google-modules/amplifiers" name="kernel/google-modules/amplifiers" groups="partner" />
+  <project path="private/google-modules/amplifiers" name="etnperlong/kernel_google-modules_amplifiers" remote="github" groups="partner" revision="android-gs-akita-6.1-android15-qpr2-beta"/>
   <project path="private/google-modules/aoc" name="kernel/google-modules/aoc" groups="partner" />
   <project path="private/google-modules/aoc_ipc" name="kernel/google-modules/aoc-ipc" groups="partner" />
   <project path="private/google-modules/bluetooth/broadcom" name="kernel/google-modules/bluetooth/broadcom" groups="partner" />
